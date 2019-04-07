@@ -1,3 +1,4 @@
+package Quiz_Classes;
 
 public class Main {
 
