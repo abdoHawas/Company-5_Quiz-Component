@@ -7,13 +7,15 @@ public class Evaluator {
 	
 	private User user;
 	private Quiz quiz;
-	private  Answer [] answers ;
+	private  String [] answers ;
 	
-	public Evaluator(long user_id , long quiz_id ,Answer []arr )
+	public Evaluator(long user_id , long quiz_id ,String[] strings)
 	{
+		answers = strings;
 		user = new User();
 		user.setUser_id(user_id);
 		user.setQuiz_id(quiz_id);
+		user.setAnswer(answers);
 		quiz = new Quiz();
 		quiz.setQuiz_id(quiz_id);
 	}
@@ -24,22 +26,23 @@ public class Evaluator {
 	public Quiz getQuiz() {
 		return quiz;
 	}
-	public Answer[] getAnswers() {
+	public String[] getAnswers() {
 		return answers;
 	}
 	
-	public void calulateScore()
+	public User calulateScore()
 	{
 		int score = 0;
-		Question []Arr ;
-		Arr = quiz.getQuestion();
+		String[]correctAnswers ;
+		correctAnswers = quiz.getCorrectAns();
 		for (int i = 0; i < answers.length; i++) {
-			if(answers[i].getAnswer().equals(Arr[i].getCorrect_answer()))
+			if(answers[i].equals(correctAnswers[i]))
 			{
 				score++;
 			}
 		}
 		user.setScore(score);
+		return user;
 	}
 }
 
