@@ -17,13 +17,13 @@ public class User {
 	private String[] answer;
 	
 	
-	public User(long i, String name, int score, int quiz_id) {
+	public User(long i, int score, int quiz_id) {
 		super();
 		this.user_id = i;
 		this.score = score;
 		this.quiz_id = quiz_id;
 	}
-	public User() {};
+	public User() {}
 	public Long getUser_id() {
 		return user_id;
 	}
@@ -39,8 +39,8 @@ public class User {
 	public long getQuiz_id() {
 		return quiz_id;
 	}
-	public void setQuiz_id(long quiz_id2) {
-		this.quiz_id = quiz_id2;
+	public void setQuiz_id(long quiz_id) {
+		this.quiz_id = quiz_id;
 	}
 	public String[] getAnswer() {
 		return answer;
